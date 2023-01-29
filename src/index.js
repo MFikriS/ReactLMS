@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from '../src/Components/Page/Home';
 import Register from './Components/Page/Register';
 import Login from './Components/Page/Login';
+import Dashboard from './Components/Page/Dashboard';
 import Layout from '../src/Components/Page/Layout';
 import Region from '../src/Components/Page/Region';
 import PageNotFound from '../src/Components/Page/PageNotFound';
@@ -20,6 +21,7 @@ root.render(
           <Route index element={<Home />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/register" element={<Register />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
           <Route path="*" element={<PageNotFound />}></Route>
         </Route>
       </Routes>

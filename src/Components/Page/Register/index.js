@@ -1,15 +1,15 @@
 import axios, { Axios } from "axios";
 import { useState, useEffect } from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import './index.css';
 
 
 const Register = () => {
-    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [fullname, setFullname] = useState("");
     const [address, setAddress] = useState("");
+    const navigate = useNavigate();
     const [birthdate, setBirthdate] = useState("");
     const [url, setUrl ] = useState("http://localhost:8088/api/user-management/register");
 
@@ -32,7 +32,16 @@ const Register = () => {
             birthDate: birthdate,
             fullName: fullname,
             address: address
-        }).then(res => console.log(res.data))
+        }).then(function (response) {
+            console.log(response.status)
+            if(response.status === 200){
+                alert('Success register, please login');
+                navigate("/login");
+            } else {
+                alert('Failed register, please fill the all form');
+                navigate("/register");
+            }
+        })
     }
 
     return (
@@ -41,7 +50,7 @@ const Register = () => {
                 <div class="login-box card">
                         <div class="card-body">
                         <form class="form-horizontal form-material" id="loginform">
-                            <h3>Learning Management System</h3>  
+                            <h4>Learning Management System</h4>  
                             <h4 class="box-title m-t-40 m-b-0">Register Employee</h4> 
                             <div class="form-group m-t-20">
                                 <div class="col-xs-12">
