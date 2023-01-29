@@ -1,0 +1,9 @@
+h1{
+    font-weight: bold; 
+    text-align: center; 
+    color: white;
+}
+
+.login-box {
+    background-color: #7ec4cf;
+}
